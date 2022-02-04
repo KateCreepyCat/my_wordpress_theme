@@ -1,0 +1,16 @@
+/wp-admin/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/plugins
+/wp-content/themes/index.php
+/wp-content/themes/twenty*/
+/wp-content/uploads/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+wp-config.php
+*.log
+/.htaccess
