@@ -4,7 +4,131 @@ add_action( 'wp_footer', 'bootstrap_js' );
 add_action( 'after_setup_theme', 'nav_menu' );
 add_action( 'after_setup_theme', 'theme_support' );
 add_action( 'init', 'register_post_types' );
+add_action( 'acf/init', 'generated_by_acf' );
 
+function generated_by_acf() {
+	acf_add_local_field_group( array(
+		'key'                   => 'group_62028075117c7',
+		'title'                 => 'Listing',
+		'fields'                => array(
+			array(
+				'key'               => 'field_620280c541dff',
+				'label'             => 'Price',
+				'name'              => 'price',
+				'type'              => 'number',
+				'instructions'      => 'Specify a price',
+				'required'          => 1,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'min'               => 0,
+				'max'               => '',
+				'step'              => '',
+			),
+			array(
+				'key'               => 'field_620281d241e00',
+				'label'             => 'Size category',
+				'name'              => 'size_category',
+				'type'              => 'radio',
+				'instructions'      => '',
+				'required'          => 1,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'choices'           => array(
+					'Small'  => 'Small',
+					'Medium' => 'Medium',
+					'Large'  => 'Large',
+				),
+				'allow_null'        => 1,
+				'other_choice'      => 0,
+				'default_value'     => '',
+				'layout'            => 'vertical',
+				'return_format'     => 'value',
+				'save_other_choice' => 0,
+			),
+			array(
+				'key'               => 'field_620283a041e01',
+				'label'             => 'Size',
+				'name'              => 'size',
+				'type'              => 'radio',
+				'instructions'      => '',
+				'required'          => 1,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'choices'           => array(
+					'1\'\'x1\'\''   => '1\'\'x1\'\'',
+					'2\'\'x2\'\''   => '2\'\'x2\'\'',
+					'5\'\'x5\'\''   => '5\'\'x5\'\'',
+					'10\'\'x10\'\'' => '10\'\'x10\'\'',
+				),
+				'allow_null'        => 1,
+				'other_choice'      => 1,
+				'save_other_choice' => 1,
+				'default_value'     => '',
+				'layout'            => 'vertical',
+				'return_format'     => 'value',
+			),
+			array(
+				'key'               => 'field_6202847941e02',
+				'label'             => 'Formats',
+				'name'              => 'formats',
+				'type'              => 'checkbox',
+				'instructions'      => '',
+				'required'          => 1,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'choices'           => array(
+					'DST' => 'DST',
+					'PEC' => 'PEC',
+					'PES' => 'PES',
+				),
+				'allow_custom'      => 1,
+				'save_custom'       => 1,
+				'default_value'     => array(),
+				'layout'            => 'vertical',
+				'toggle'            => 0,
+				'return_format'     => 'value',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'post_type',
+					'operator' => '==',
+					'value'    => 'listing',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen'        => '',
+		'active'                => true,
+		'description'           => '',
+		'show_in_rest'          => 0,
+	) );
+}
 
 function register_post_types() {
 	register_post_type( 'listing', [
@@ -68,7 +192,7 @@ function bootstrap_css() {
 	wp_register_style( 'bootstrap.min.css',
 		'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' );
 	wp_enqueue_style( 'bootstrap.min.css' );
-	wp_enqueue_style( 'custom', get_template_directory_uri() . '/assets/css/custom.css', ['bootstrap.min.css'] );
+	wp_enqueue_style( 'custom', get_template_directory_uri() . '/assets/css/custom.css', [ 'bootstrap.min.css' ] );
 }
 
 function bootstrap_js() {

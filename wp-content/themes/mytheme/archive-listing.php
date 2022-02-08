@@ -30,13 +30,15 @@ Template Post Type: page
                                                 </button>
                                             </a>
                                         </div>
+                                        <small class="text-muted"><?php the_field( 'size' ) ?>
+                                            $<?php the_field( 'price' ); ?></small>
                                     </div>
                                 </div>
                             </div>
                         </div>
 						<?php
 					}
-					wp_reset_postdata();?>
+					wp_reset_postdata(); ?>
 
 				<?php } else {
 					echo 'Записей нет.';
