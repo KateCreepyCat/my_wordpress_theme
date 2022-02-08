@@ -68,6 +68,7 @@ function bootstrap_css() {
 	wp_register_style( 'bootstrap.min.css',
 		'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' );
 	wp_enqueue_style( 'bootstrap.min.css' );
+	wp_enqueue_style( 'custom', get_template_directory_uri() . '/assets/css/custom.css', ['bootstrap.min.css'] );
 }
 
 function bootstrap_js() {
